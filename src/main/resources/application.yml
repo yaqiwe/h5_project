@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/h5_project?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+# Single file max size
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+## 文件常量
+fileSrc : C:/h5/
+mappingUrl: /image/
+InternetIp: 120.79.41.196
+## 微信登陆常量
+appid : wxda2e02d6d7cc0ea9
+secret: 5fa7086049ac118cb38e7e6bf40be534
+
+server:
+  port: 8888
