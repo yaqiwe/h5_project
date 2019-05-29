@@ -38,7 +38,7 @@ public class shiroConfig{
         map.put("/user/createUser","anon");//注册用户
         map.put("/article/selectArticle","anon");//查询文章列表接口
         map.put("/article/getArticle","anon");//查询文章详细信息
-        map.put("/image","anon");//图片资源
+        map.put("/image/**","anon");//图片资源
         map.put("/**","authc");
         bean.setFilterChainDefinitionMap(map);
         return bean;

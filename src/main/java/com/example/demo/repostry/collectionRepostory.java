@@ -15,4 +15,5 @@ public interface collectionRepostory extends JpaRepository<collection,Integer> {
     collection findByArticleIdAndUserId(Integer aid, Integer uid);
 
     List<collection> findByUserId(Integer id);
+    List<collection> findByArticleId(Integer id);
 }

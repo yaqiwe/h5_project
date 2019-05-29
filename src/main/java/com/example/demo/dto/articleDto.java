@@ -9,7 +9,7 @@ import java.util.List;
 public class articleDto {
 
     private Integer id;
-    //用户ID
+    //用户名
     private String userName;
     //文章标题
     private String title;

@@ -15,4 +15,6 @@ public interface userLikeRepostory extends JpaRepository<userLike,Integer> {
     Integer countByArticleId(Integer id);
 
     userLike findByArticleIdAndUserId(Integer aid,Integer uid);
+
+    List<userLike> findByArticleId(Integer id);
 }

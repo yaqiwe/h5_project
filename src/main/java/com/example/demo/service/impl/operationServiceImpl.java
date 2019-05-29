@@ -125,7 +125,7 @@ public class operationServiceImpl implements operationService {
         BeanUtils.copyProperties(art,dto);
         dto.setPictureSrc(file.getIp()+dto.getPictureSrc());
         dto.setComment(commentR.countByArticleId(dto.getId()));
-        dto.setArticle(file.readDataToFile(dto.getArticle()));
+        dto.setUserName(users.findById(art.getUserId()).get().getUserName());
         dto.setUserLike(userLikes.countByArticleId(dto.getId()));
         return dto;
     }

@@ -2,10 +2,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.dto.articleBriefDto;
 import com.example.demo.dto.articleDto;
-import com.example.demo.entity.article;
-import com.example.demo.entity.comment;
-import com.example.demo.entity.historicalRecord;
-import com.example.demo.entity.user;
+import com.example.demo.entity.*;
 import com.example.demo.enums.articleEnum;
 import com.example.demo.enums.userEnum;
 import com.example.demo.repostry.*;
@@ -41,6 +38,8 @@ public class articleServiceImpl implements articleService {
     userRepostory users;
     @Autowired
     commentRepostory comments;
+    @Autowired
+    collectionRepostory collections;
     @Autowired
     userLikeRepostory userLikes;
     @Autowired
@@ -91,6 +90,15 @@ public class articleServiceImpl implements articleService {
             return ResultUtil.error(articleEnum.DELETE_IS_NULL.getCode(), articleEnum.DELETE_IS_NULL.getMsg());
         files.deleteFile(art.getPictureSrc());
         files.deleteFile(art.getArticle());
+        List<comment> comList=comments.findByArticleId(id);
+        List<collection> colList=collections.findByArticleId(id);
+        List<userLike> usLike=userLikes.findByArticleId(id);
+        for (collection col : colList)
+            collections.delete(col);
+        for (comment com : comList)
+            comments.delete(com);
+        for (userLike uL : usLike)
+            userLikes.delete(uL);
         articles.delete(art);
         return ResultUtil.success();
     }
@@ -122,7 +130,8 @@ public class articleServiceImpl implements articleService {
             BeanUtils.copyProperties(arts, dto);
             dto.setComment(comments.countByArticleId(dto.getId()));
             dto.setUserLike(userLikes.countByArticleId(dto.getId()));
-            dto.setArticle(files.readDataToFile(dto.getArticle()));
+            user us = users.findById(arts.getUserId()).get();
+            dto.setUserName(us.getUserName());
             if (dto.getPictureSrc()!=null)
                 dto.setPictureSrc(files.getIp()+dto.getPictureSrc());
             list.add(dto);
