@@ -42,15 +42,14 @@ public class userController {
                               @RequestParam(required = false) MultipartFile src,
                               @RequestParam(required = false) String birthday){
         return user.updateUser(passWord,gender,nickName,src,birthday);
-
     }
     /*未登录时的提示*/
-    @GetMapping(value = "/LoginUrl")
+    @RequestMapping(value = "/LoginUrl")
     public Result LoginUrl(){
         return ResultUtil.error(404,"未登陆无法执行该操作");
     }
     /*没有权限时的提示*/
-    @GetMapping(value = "/UnauthorizedUrl")
+    @RequestMapping(value = "/UnauthorizedUrl")
     public Result UnauthorizedUrl(){
         return ResultUtil.error(404,"没有该操作的权限");
     }

@@ -26,4 +26,4 @@ appid : wxda2e02d6d7cc0ea9
 secret: 5fa7086049ac118cb38e7e6bf40be534
 
 server:
-  port: 8888
+  port: 8080

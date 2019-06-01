@@ -83,7 +83,6 @@ public class fileSrcUtil {
      */
     public boolean deleteFile(String url) {
         Path filePath = Paths.get(fileSrc + url);
-        log.info(fileSrc + url);
         try {
             if (!Files.notExists(filePath))
                 Files.delete(filePath);
