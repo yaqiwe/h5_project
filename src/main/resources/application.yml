@@ -20,7 +20,7 @@ spring:
 ## 文件常量
 fileSrc : C:/h5/
 mappingUrl: /image/
-InternetIp: 120.79.41.196
+InternetIp: localhost
 ## 微信登陆常量
 appid : wxda2e02d6d7cc0ea9
 secret: 5fa7086049ac118cb38e7e6bf40be534

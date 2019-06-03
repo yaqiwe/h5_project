@@ -14,13 +14,17 @@ public class articleDto {
     //文章标题
     private String title;
     //文章配图
-    private String pictureSrc;
+    private List<String> pictureSrc;
     //文章内容
     private String article;
     //文章编辑时间
     private Timestamp createTime;
+    //评论数量
+    private Integer commentNumber;
     //评论
     private List<commentDto> comment;
+    //是否收藏
+    private Boolean isCollection=false;
     private Boolean is_like=false;
     @Data
     public static class commentDto{

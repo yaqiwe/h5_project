@@ -16,4 +16,9 @@ public interface articleRepostory extends JpaRepository<article,Integer> {
     article findByIdAndUserId(Integer artId,Integer userId);
 
     Page<article> findByUserId(Integer id, Pageable page);
+
+    //查询文章或者视频
+    Page<article> findByTypeId(Integer type, Pageable page);
+    //当前用户查询文章或者视频
+    Page<article> findByTypeIdAndUserId(Integer type, Integer id, Pageable page);
 }

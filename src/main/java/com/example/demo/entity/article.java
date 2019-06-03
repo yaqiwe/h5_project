@@ -33,4 +33,6 @@ public class article {
     private String article;
     //文章编辑时间
     private Timestamp createTime;
+    //文章类型
+    private Integer typeId;
 }

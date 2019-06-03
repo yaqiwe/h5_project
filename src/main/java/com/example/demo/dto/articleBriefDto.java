@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Data
 public class articleBriefDto {
@@ -16,9 +17,13 @@ public class articleBriefDto {
     //用户名
     private String userName;
     //文章配图
-    private String pictureSrc;
+    private List<String> pictureSrc;
+    //文章编辑时间
+    private Timestamp createTime;
     //评论数量
     private Integer comment;
     //点赞数量
     private Integer userLike;
+    //类型文章或视频
+    private Integer typeId;
 }

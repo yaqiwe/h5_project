@@ -1,6 +1,9 @@
 package com.example.demo.service;
 
+import com.example.demo.dto.articleDto;
 import com.example.demo.util.Result;
+
+import java.util.List;
 
 public interface operationService {
     /**
@@ -36,4 +39,11 @@ public interface operationService {
      * @return
      */
     public Result selectHistory();
+
+    /**
+     * 将评论映射成Dto
+     * @param id
+     * @return
+     */
+    public List<articleDto.commentDto> commentToDot(Integer id);
 }

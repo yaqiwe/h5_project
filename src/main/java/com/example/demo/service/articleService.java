@@ -1,7 +1,13 @@
 package com.example.demo.service;
 
+import com.example.demo.dto.articleBriefDto;
+import com.example.demo.dto.articleDto;
+import com.example.demo.entity.article;
 import com.example.demo.util.Result;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /*
 *@author yaqiwe
@@ -14,9 +20,10 @@ public interface articleService {
      * @param title 文章标题
      * @param text 文章内容
      * @param file 文章配图
+     * @param videoUrl 视频链接
      * @return
      */
-    public Result createArticle(String title, String text, MultipartFile file);
+    public Result createArticle(String title, String text, HttpServletRequest file, String videoUrl);
 
     /**
      * 获取当前用户的ID
@@ -35,7 +42,7 @@ public interface articleService {
      * 查询文章列表
      * @return
      */
-    public Result selectArticle(Integer page,Integer limit,String userName);
+    public Result selectArticle(Integer page,Integer limit,boolean thisArticle, String artType);
 
     /**
      * 查询文章详细内容
@@ -50,4 +57,12 @@ public interface articleService {
      * @param aid 文章ID
      */
     public void SetHistoricalRecord(Integer uid,Integer aid);
+
+    /**
+     * 将文章映射成文章简略
+     * @param art 文章列表
+     * @return
+     */
+    public List<articleBriefDto> articleToBrie(List<article> art);
+
 }
