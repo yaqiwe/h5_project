@@ -10,7 +10,7 @@ public class articleDto {
 
     private Integer id;
     //用户名
-    private String userName;
+    private String nickName;
     //文章标题
     private String title;
     //文章配图

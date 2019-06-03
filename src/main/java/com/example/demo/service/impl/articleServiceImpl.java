@@ -28,7 +28,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
 import java.util.*;
 
-
 /*
  *@author yaqiwe
  *@data 2019-05-22 01:02
@@ -183,7 +182,7 @@ public class articleServiceImpl implements articleService {
             dto.setComment(comments.countByArticleId(dto.getId()));
             dto.setUserLike(userLikes.countByArticleId(dto.getId()));
             user us = users.findById(arts.getUserId()).get();
-            dto.setUserName(us.getUserName());
+            dto.setNickName(us.getNickName());
             if (arts.getPictureSrc() != null) {//返回图片列表
                 String[] uri = arts.getPictureSrc().split(urlFenGe);
                 List<String> list1 = new ArrayList<>();

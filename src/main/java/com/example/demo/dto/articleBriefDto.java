@@ -15,7 +15,7 @@ public class articleBriefDto {
     //文章标题
     private String title;
     //用户名
-    private String userName;
+    private String nickName;
     //文章配图
     private List<String> pictureSrc;
     //文章编辑时间
